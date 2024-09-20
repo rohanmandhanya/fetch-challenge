@@ -1,0 +1,14 @@
+services:
+
+  fetch:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/code
+      - type: bind
+        source: README.md
+        target: /code/README.md
+    image: fetch:latest
+    ports:
+      - "8000:8000"
